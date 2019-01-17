@@ -1,28 +1,48 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+// import Joke from './components/Joke';
+import Product from './components/Product'
+import productsData from './data/productsData'
 
-class App extends Component {
-  render() {
+// const myJokes = [
+//   {
+//     id: 1
+//     , question: 'Why did the chicken cross the road?'
+//     , punchline: 'To get to the other side'
+//   }
+//   , {
+//     id: 2
+//     , question: 'What did sushi A say to sushi B?'
+//     , punchline: 'Wasabi!'
+//   }
+//   , {
+//     id: 3
+//     , punchline: 'No question, only punchline because I am thirsy.'
+//   }
+//   , {
+//     id: 4
+//     , question: 'What’s the best time to go to the dentist?'
+//     , punchline: 'Tooth hurty'
+//   }
+//   , {
+//     id: 5
+//     , question: 'Why are bananas never lonely?'
+//     , punchline: 'Because they hang out in bunches.'
+//   }
+// ]
+
+function App() {
+  const productList = productsData.map(item => {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+        <Product key={item.id} productName={item} />
+    )
+  })
+
+  return (
+    <div>
+      {productList}
+    </div>
+  )
 }
+
 
 export default App;
